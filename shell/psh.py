@@ -1,5 +1,6 @@
 from cmd2 import Cmd
 import requests
+import getpass
 
 __version__ = '0.1'
 
@@ -14,7 +15,8 @@ class Application(Cmd):
 		print "Python rocks!"
 
 	def do_greet(self, line):
-		print "hi"
+		x = getpass.getuser()
+		print "hi %s" % x
 	def do_stock(self, line):
 		try:
 			r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s='+line+'&f=l1')
