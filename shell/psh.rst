@@ -21,6 +21,7 @@ Explanation of the code
     
     from cmd2 import Cmd    #cmd2 module is imported for making command
     import requests         #requests module is imported for http requests
+    import getpass
     
     __version__ = '0.1'
     
@@ -35,7 +36,8 @@ Explanation of the code
                     print "Python rocks!"
 
             def do_greet(self, line):      # greet command is made which will print hi
-                    print "hi"
+                    x = getpass.getuser()
+                    print "hi %s" % x
             def do_stock(self, line):      # stock command is made which will print sharevalue
                     try:
                             r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s='+line+'&f=l1')
