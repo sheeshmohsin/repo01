@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: shell
+Version: 0.2
+Summary: A python script to run an own shell
+Home-page: http://dgplug.org/summertraining/2013/
+Author: Sheesh Mohsin
+Author-email: sheeshmohsin@gmail.com
+License: MIT
+Description: A python script to run an own shell
+Platform: Linux
