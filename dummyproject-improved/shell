@@ -1,0 +1,55 @@
+from cmd2 import Cmd
+import requests
+import getpass
+import fbconsole
+
+__version__ = '0.1'
+
+class Application(Cmd):
+	def __init__(self):
+		Cmd.__init__(self)
+
+	def do_hello(self, line):
+		print "Hello:", line
+
+	def do_sayit(self, line):
+		print "Python rocks!"
+
+	def do_greet(self, line):
+		x = getpass.getuser()
+		print "hi %s" % x
+	def do_stock(self, line):
+		try:
+			r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s='+line+'&f=l1')
+			b = float(r.text)
+			if b == 0.00:
+				print "Invalid Nasdaq Code"
+			else:
+				print "%f" % (b)
+		except:
+			print "Connection Problem"
+	def do_fblogin(self, line):
+		try:
+			fbconsole.AUTH_SCOPE = ['publish_stream', 'publish_checkins']
+			fbconsole.authenticate()
+		except:
+			print "Connection Problem"
+	def do_fbpost(self, line):
+		try:
+			status = fbconsole.post('/me/feed', {'message':''+line+''})
+		except:
+			print "Connection Problem"
+	def do_fblogout(self, line):
+		try:
+			fbconsole.logout()
+		except:
+			print "Connection Problem"
+	def do_fbpicpost(self, line):
+		try:
+			fbconsole.post('/me/photos', {'source':open(''+line+'')})
+		except:
+			print "Connection Problem"
+
+if __name__ == '__main__':
+	app = Application()
+	app.cmdloop()

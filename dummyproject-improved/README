@@ -1,0 +1,6 @@
+How to install shell?
+=====================
+
+1. Extract the tar.gz file
+2. Open the terminal and change to the location of extracted directory.
+3. Then, become a root user and type "python setup.py install" and press enter.

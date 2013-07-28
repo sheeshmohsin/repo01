@@ -1,0 +1,5 @@
+setuptools
+requests
+cmd2
+fbconsole
+pyparsing
