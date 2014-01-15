@@ -1,0 +1,491 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Jobs Finder-Signup</title>
+</head>
+
+<body>
+<center>
+<div class="nav">
+<center>
+<div class="header">
+    <div class="navbar home" id="drop"><span id="shift" style="color:black"><a href="/">Home</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/signup/">Job Seeker Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/resumeservice/">Resume Services</a></span></div>
+    <div class="navbar recruiter" id="drop"><span id="shift" style="color:black"><a href="/edit_profile/">Post Resume</a></span></div>
+    <div class="navbar search_job" id="drop"><span id="shift" style="color:black"><a href="/searchjob/">Search Jobs</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/recruiter/">Employer Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/postjob/">Post a Job</a></span></div>
+    <div class="navbar last" id="drop"><span id="shift" style="color:black"><a href="/buyonline/">Buy Online</a></span></div>
+</div>
+</center>
+</div>
+<div class="condition"><span style="color:red">{% block condition %}{% endblock %}</span></div>
+<div class="both">
+<div class="equal signup">
+    <form action="/register/" method="post" name="myForm" onsubmit="return(validateform())">{% csrf_token %}
+	<p><b><u><center>Become a Member<br>&<br>Search Jobs over many companies</center></u></b></p>
+	<center><p><input class="sign_up" id="mail" type="text" name="email" placeholder="Email" onblur="validate(document.myForm.email)"/><br>
+		<span id="provide" style="color:red;font-size:15px;">Please enter correct email.</span><br/></p>
+		<p><input class="sign_up" id="confirmmail" type="text" name="confirm_email" placeholder="Confirm Email" onblur="confirmEmail()"/><br>
+		<span id="prov" style="color:red;font-size:15px;">Email does not match</span><br/></p>
+		<p><input class="sign_up" type="password" id="passwrd" name="passwd" placeholder="Password" onblur="CheckPassword(document.myForm.passwd)"/><br/><br/></p>
+		<p><input class="sign_up" type="password" id="confirmpasswrd" name="confirm_passwd" placeholder="Confirm Password" onblur="confirmPasswd()"/><br>
+		<span id="pro" style="color:red;font-size:15px;">Password does not match</span><br/></p>
+		<p><input class="sign_up" id="extra" type="text" name="country_code" value="91" maxlength="3" /><input class="sign_up" id="mobile" type="text" name="mobile_no" placeholder="Mobile No." maxlength="10" onblur="phonenumber()"/><br><span id="phone" style="color:red;font-size:15px;">Invalid Mobile Number</span><br/></p>
+		<p><input type="checkbox" name="agree"/><b>I agree to the </b><a href="#" target="blank">Terms & Conditions</a></p>
+		<p><input type="submit" value="Sign Up" /></p></center>
+    </form>
+
+</div>
+<div class="equal navbar1" id="login_system">
+<form action="/login/" method="post" name="Form" onsubmit="return(ValidateForm())">{% csrf_token %}
+    <p><b><u><center>Job Seeker Login</center></u></b></p>
+    <center>
+    <input type="text" class="checkemail" name="email" placeholder="Email" onblur="Validate(document.Form.email)"/><br/>
+    <span style="color:red;font-size:15px;" id="verify">Enter correct email address</span><br/><br/>
+    <input type="password" class="checkpasswd" name="passwd" placeholder="Password" onblur="CheckPasswd(document.Form.passwd)"/><br/>
+    <span style="color:red;font-size:15px;" id="hiddenalert">Enter correct password</span><br/>
+    <p><input type="submit" class="logintab" value="Login" /></p>
+    <p id="forgot1"><a href="#" id="forgot">Forgot Password?</a></p></center>
+</form>
+</div>
+<div class="equal register">
+    <b>Register in 5 easy steps</b>
+	<ol>
+	    <li>Enter Email<img src="{% static "assets/images/images.jpg" %}" class="check" id="check_one"></li>
+	    <li>Confirm Email<img src="{% static "assets/images/images.jpg" %}" class="check" id="check_two"></li>
+	    <li>Enter Password<img src="{% static "assets/images/images.jpg" %}" class="check" id="check_three"></li>
+	    <li>Confirm Password<img src="{% static "assets/images/images.jpg" %}" class="check" id="check_four"></li>
+	    <li>Enter Mobile No.<img src="{% static "assets/images/images.jpg" %}" class="check" id="check_five"></li>
+	</ol>
+</div>
+</div>
+<div class="end_bar">
+<center>
+    <div class="ending"><a href="#">Feedback</a></div>
+    <div class="ending"><a href="#">FAQ</a></div>
+    <div class="ending"><a href="#">About us</a></div>
+    <div class="ending"><a href="#">Contact us</a></div>
+    <div class="ending"><a href="#">Privacy Policy</a></div>
+    <div class="ending"><a href="#">Security Advice</a></div>
+    <div class="ending"><a href="#">Terms & Condition</a></div>
+    <div class="ending lasting"><a href="#">Disclaimer</a></div>
+</center>
+</div>
+</center>
+<style media="screen" type="text/css">
+.nav {
+	width:83.6em;
+	height:2.9em;
+	background: rgba(76,76,76,1);
+background: rgba(210,255,82,1);
+background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(43%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+border-bottom: 5px solid orange;
+}
+.navbar:hover {
+        box-shadow:0 0 0 0 ;
+}
+.navbar {
+        box-shadow:0 0 5px rgba(0,0,0,0.8);
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    position:relative;
+    width: 10em;
+    height: 2em;
+    margin-left: 2px;
+    font-size:12px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.header {
+        position:relative;
+	top:1em;
+}
+.last {
+    border-right: 1px solid black;
+}
+#shift {
+    position:relative;
+    top:0.5em;
+}
+.sign_up {
+    width:15em;
+    height:2em;
+}
+#extra {
+    width:3em;
+}
+#shift {
+    position:relative;
+    top:0.5em;
+}
+#mobile {
+    width:12em;
+}
+.signup {
+    position:relative;
+    top:4em;
+    right:4em;
+    border-radius: 3px;
+    border: 2px solid orange;
+    padding:15px;
+    background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+ul {
+    list-style-type:none;
+}
+li {
+    text-align:left;
+}
+.equal {
+    display: inline-block;
+}
+.register {
+    font-size: 20px;
+    position:relative;
+    top: 3em;
+    left:0em;
+    bottom:2em;
+    padding:15px;
+    border:2px solid orange;
+    border-radius:5px;
+}
+#provide {
+    height:12px;
+    display:none;
+}
+#prov {
+    height:12px;
+    display:none;
+}
+#pro {
+    display:none;
+}
+#phone {
+    display:none;
+}
+.check {
+    width:15px;
+    height:15px;
+    display:none;
+}
+.end_bar {
+    background-color:#a8a8a8;
+    height: 3em;
+    width:83.6em;
+    border-top:1px solid black;
+    margin-top: 10em;
+}
+.ending {
+    display: inline-block;
+    border-right:1px solid black;
+    width:10em;
+    position: relative;
+    top: 1em;
+}
+.lasting {
+    border-right: 0px none;
+}
+a {
+    text-decoration:none;
+    color: black;
+}
+.navbar1 {
+    width:18em;
+    border: 1px solid black;
+    border-radius: 5px;
+    position:relative;
+    box-shadow: 0 15px 10px #777;
+    top:-11em;
+    left:17em;
+    background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+#forgot {
+    font-size: 12px;
+    position: relative;
+    right:0px;
+}
+#sign_up {
+    position: relative;
+    left:30px;
+    font-size:12px;
+}
+#verify {
+    display:none;
+}
+.checkemail {
+    height:2em;
+    width:14em;
+}
+.checkpasswd {
+    height:2em;
+    width:14em;
+}
+.logintab {
+    font-size:15px;
+}
+#hiddenalert {
+    display:none;
+}
+.condition {
+    position: relative;
+    top:1em;
+    display:inline-block;
+    background-color: yellow;
+}
+</style>
+<script>
+    function validate(email)
+   {
+   if( email.value == "" )
+   {
+     document.getElementById("provide").style.display="inline-block";
+     document.myForm.email.value="";
+     return false;
+   }
+   else
+   {
+     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+     if(email.value.match(mailformat))  
+	{    
+            document.getElementById("provide").style.display="none";
+	    document.getElementById("check_one").style.display="inline-block";
+	    return true;  
+	}
+     else
+	{ 
+            document.getElementById("provide").style.display="inline-block";
+	    document.myForm.email.focus();
+	    document.myForm.email.value="";  
+	    return false;
+	 }
+    }
+}
+     function confirmEmail()
+     {
+	if(document.getElementById("confirmmail").value == "")
+	{
+	    document.getElementById("prov").style.display="inline-block";
+     	    return false;
+	}
+	else
+	{
+	if(document.getElementById("mail").value != document.getElementById("confirmmail").value)
+	{
+	    document.getElementById("prov").style.display="inline-block";
+	    document.myForm.confirm_email.focus();
+	    document.myForm.confirm_email.value="";
+	    return false;
+	}
+	else
+	{
+	    document.getElementById("prov").style.display="none";
+	    document.getElementById("check_two").style.display="inline-block";
+	    return true;
+	}
+	}
+     }
+    function CheckPassword(passwd)
+    {
+	var passwdformat=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	if(passwd.value == "")
+	{
+		alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+		return false;
+	}
+	else
+	{
+	if(passwd.value.match(passwdformat))
+	{
+		document.getElementById("check_three").style.display="inline-block";
+		return true;
+	}
+	else
+	{
+		alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+		document.myForm.passwd.focus();
+		document.myForm.passwd.value="";
+		return false;
+	}
+	}
+    }
+    function confirmPasswd() {
+	if(document.getElementById("confirmpasswrd").value=="")
+	{
+		document.getElementById("pro").style.display="inline-block";
+		return false;
+	}
+	else
+	{
+	if(document.getElementById("passwrd").value != document.getElementById("confirmpasswrd").value)
+	{
+		document.getElementById("pro").style.display="inline-block";
+		document.myForm.confirm_passwd.focus();
+		document.myForm.confirm_passwd.value="";
+		return false;
+	}
+	else
+	{
+	    document.getElementById("pro").style.display="none";
+	    document.getElementById("check_four").style.display="inline-block";
+	    return true;
+	}
+	}
+    }
+    function phonenumber()
+    {
+	var x = document.myForm.mobile_no.value;
+	if(x=="")
+	{
+		document.getElementById("phone").style.display="inline-block";
+		return false;
+	}
+	else
+	{
+	if(isNaN(x)||x.indexOf(" ")!=-1 || x.length!=10)
+	
+	{
+		document.getElementById("phone").style.display="inline-block";
+	        document.myForm.mobile_no.focus();
+	        document.myForm.mobile_no.value="";
+		return false;
+	}
+	else
+	{
+		document.getElementById("phone").style.display="none";
+		document.getElementById("check_five").style.display="inline-block";
+		return true;
+	}
+	}
+    }
+    function validateform()
+    {
+    if(document.myForm.email.value=="")
+    {
+	document.getElementById("provide").style.display="inline-block";
+	return false;
+    }
+    else if(document.getElementById("confirmmail").value == "")
+    {
+	document.getElementById("prov").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.passwd.value=="")
+    {
+	alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+	return false;
+    }
+    else if(document.getElementById("confirmpasswrd").value=="")
+    {
+	document.getElementById("pro").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.mobile_no.value=="")
+    {
+	document.getElementById("phone").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.agree.checked != 1)
+    {
+	alert("Please agree to the agreement");
+	return false;
+    }
+    else
+    {
+	return true;
+    }
+    }
+    function Validate(email)
+   {
+   if( email.value == "" )
+   {
+     document.getElementById("verify").style.display="inline-block";
+     document.myForm.email.value="";
+     return false;
+   }
+   else
+   {
+     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+     if(email.value.match(mailformat))  
+	{    
+            document.getElementById("verify").style.display="none";
+	    return true;  
+	}
+     else
+	{ 
+            document.getElementById("verify").style.display="inline-block";
+	    document.myForm.email.focus();
+	    document.myForm.email.value="";  
+	    return false;
+	 }
+    }
+}
+function CheckPasswd(passwd)
+    {
+	var passwdformat=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	if(passwd.value == "")
+	{
+		alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+		document.getElementById("hiddenalert").style.display="inline-block";
+		return false;
+	}
+	else
+	{
+	if(passwd.value.match(passwdformat))
+	{
+		return true;
+	}
+	else
+	{
+		alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+		document.getElementById("hiddenalert").style.display="inline-block";
+		document.myForm.passwd.focus();
+		document.myForm.passwd.value="";
+		return false;
+	}
+	}
+    }
+    function ValidateForm()
+    {
+    if(document.Form.email.value=="")
+    {
+	document.getElementById("verify").style.display="inline-block";
+	return false;
+    }
+    else if(document.Form.passwd.value=="")
+    {
+	alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+	document.getElementById("hiddenalert").style.display="inline-block";
+	return false;
+    }
+    else
+    {
+	return true;
+    }
+    }
+</script>
+</body>
+</html>

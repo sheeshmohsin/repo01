@@ -1,0 +1,558 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Jobs Finder-rsignup</title>
+</head>
+
+<body>
+<center>
+<div class="nav">
+<center>
+<div class="header">
+    <div class="navbar home" id="drop"><span id="shift" style="color:black"><a href="/">Home</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/signup/">Job Seeker Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/resumeservice/">Resume Services</a></span></div>
+    <div class="navbar recruiter" id="drop"><span id="shift" style="color:black"><a href="/edit_profile/">Post Resume</a></span></div>
+    <div class="navbar search_job" id="drop"><span id="shift" style="color:black"><a href="/searchjob/">Search Jobs</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/recruiter/">Employer Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/postjob/">Post a Job</a></span></div>
+    <div class="navbar last" id="drop"><span id="shift" style="color:black"><a href="/buyonline/">Buy Online</a></span></div>
+</div>
+</center>
+</div>
+<div class="condition"><span style="color:red">{% block condition %}{% if condition %} {{ condition }} {% endif %}{% endblock %}</span></div>
+<div class="both">
+<div class="full form">
+<form action="/rregister/" method="post" name="myForm" onsubmit="return(validateform())">{% csrf_token %}
+    <table class="recruit_sign">
+    <th colspan="2"><div class="register"><span class="inner_register">Register Now</span></div></th>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">Company Name: </td><td><input class="form-size" type="text" name="company" onblur="checkcompany()" placeholder="Enter Company Name"/><br/><span id="provid" style="color:red">Company Name is required</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">Contact Name: </td><td><input class="form-size" type="text" name="contact" onblur="checkcontact()" placeholder="Enter Contact Name"/><br/><span id="provi" style="color:red">Contact Name is required</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">E-Mail Address: </td><td><input class="form-size" type="text" name="emailid" onblur="validate(document.myForm.emailid)" placeholder="Enter email address"/><br/><span id="provide" style="color:red">Enter correct email</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">Website: </td><td><input class="form-size" type="text" name="website" onblur="Validate(document.myForm.website)" placeholder="Enter Website"/><br/><span id="prov" style="color:red">Enter correct website( use http(s):// )</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">Location: </td><td><input class="form-size" type="text" name="location" onblur="checklocation(document.myForm.location)" placeholder="Enter Current Location"/><br/><span id="pro" style="color:red">Location is Required</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">Password: </td><td><input class="form-size" type="password" name="passwd" onblur="CheckPassword(document.myForm.passwd)" placeholder="Enter Password" id="passwrd"/></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">Confirm Password: </td><td><input class="form-size" type="password" name="confirm_passwd" onblur="confirmPasswd()" placeholder="Confirm Password" id="confirmpasswrd"/><br/><span id="providet" style="color:red">Password does not match</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td class="form-text">Mobile Number: </td><td><input class="form-size" name = "countrycode" id="extra" type="text" value="91" maxlength="3"/><input class="form-size" id="mobile" type="text" name="mobile_no" placeholder="Enter Mobile Number" maxlength="10" onblur="phonenumber()"/><br/><span id="provideg" style="color:red">Enter correct mobile number.</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <td></td><td><input type="checkbox" name="agree" onblur="agreement()"/><b>I agree to the</b><a href="#" target="blank">Terms & Conditions</a><br/><span id="provido" style="color:red">Please agree to the agreement</span></td>
+    </tr>
+    <tr><td><br/></td></tr>
+    <tr><td><br/></td></tr>
+    <tr>
+    <th colspan="2"><input class="submit_sign" type="submit" value="Sign Up"/></th>
+    </tr>
+    </table>
+</form>
+</div>
+<div class="form">
+<div class="equal navbar1" id="login_system">
+<form action="/rlogin/" method="post" name="Form" onsubmit="return(ValidateForm())">{% csrf_token %}
+    <p><b><u><center>Employer Login</center></u></b></p>
+    <center>
+    <input type="text" class="checkemail" name="email" placeholder="Email" onblur="alidate(document.Form.email)"/><br/>
+    <span style="color:red;font-size:15px;" id="verify">Enter correct email address</span><br/><br/>
+    <input type="password" class="checkpasswd" name="passwd" placeholder="Password" onblur="CheckPasswd(document.Form.passwd)"/><br/>
+    <span style="color:red;font-size:15px;" id="hiddenalert">Enter correct password</span><br/>
+    <p><input type="submit" class="logintab" value="Login" /></p>
+    <p id="forgot1"><a href="#" id="forgot">Forgot Password?</a></p></center>
+</form>
+</div>
+<div class="thousands">
+<center><span class="move">Search Over Thousands Of <br>Candidates Profile Here.</span></center>
+</div>
+</div>
+</div>
+<div class="end_bar">
+<center>
+    <div class="ending"><a href="#">Feedback</a></div>
+    <div class="ending"><a href="#">FAQ</a></div>
+    <div class="ending"><a href="#">About us</a></div>
+    <div class="ending"><a href="#">Contact us</a></div>
+    <div class="ending"><a href="#">Privacy Policy</a></div>
+    <div class="ending"><a href="#">Security Advice</a></div>
+    <div class="ending"><a href="#">Terms & Condition</a></div>
+    <div class="ending lasting"><a href="#">Disclaimer</a></div>
+</center>
+</div>
+</center>
+
+
+<style>
+.nav {
+	width:83.6em;
+	height:2.9em;
+	background: rgba(76,76,76,1);
+background: rgba(210,255,82,1);
+background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(43%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+border-bottom: 5px solid orange;
+}
+.navbar:hover {
+        box-shadow:0 0 0 0 ;
+}
+.navbar {
+        box-shadow:0 0 5px rgba(0,0,0,0.8);
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    position:relative;
+    width: 10em;
+    height: 2em;
+    margin-left: 2px;
+    font-size:12px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.header {
+        position:relative;
+	top:1em;
+}
+.last {
+    border-right: 1px solid black;
+}
+#shift {
+    position:relative;
+    top:0.5em;
+}
+.full {
+    position:relative;
+    top:6em;
+    right:2em;
+}
+.form-text {
+    font-size:18px;
+    width: 13em;
+}
+.form-size {
+    width:18em;
+    height:2.3em;
+    font-size: 15px;
+}
+#extra {
+    width: 2.4em;
+}
+#mobile {
+    width:15.2em;
+}
+.register {
+    border-radius:3px;
+    height:3em;
+    background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+.full {
+    border: 3px solid orange;
+    display:inline-block;
+    border-radius:4px;
+}
+.inner_register {
+    position: relative;
+    top:0.8em;
+}
+.end_bar {
+    background-color:#a8a8a8;
+    height: 3em;
+    width:83.6em;
+    border-top:1px solid black;
+    margin-top: 20em;
+}
+.ending {
+    display: inline-block;
+    border-right:1px solid black;
+    width:10em;
+    position: relative;
+    top: 1em;
+}
+.lasting {
+    border-right: 0px none;
+}
+.submit_sign {
+    font-size: 18px;
+}
+.form {
+    display:inline-block;
+}
+.thousands {
+    font-size: 2em;
+    position:relative;
+    left:2em;
+    top:9em;
+}
+.move {
+    position:relative;
+    top:-10em;
+}
+a {
+    text-decoration:none;
+    color: black;
+}
+#providet,#provido,#provideg,#provider,#pro,#prov,#provi,#provid,#provide {
+    display:none;
+}
+.navbar1 {
+    width:18em;
+    border: 1px solid black;
+    border-radius: 5px;
+    position:relative;
+    box-shadow: 0 15px 10px #777;
+    top:-13em;
+    left:3.5em;
+    background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+#forgot {
+    font-size: 12px;
+    position: relative;
+    right:0px;
+}
+#verify,#hiddenalert {
+    display:none;
+}
+.checkemail {
+    height:2em;
+    width:14em;
+}
+.checkpasswd {
+    height:2em;
+    width:14em;
+}
+.logintab {
+    font-size:15px;
+}
+.condition {
+    position: relative;
+    top:1em;
+    display:inline-block;
+    background-color: yellow;
+}
+</style>
+<script>
+function validate(email)
+{
+    if(email.value == "")
+    {
+	document.getElementById("provide").style.display="inline-block";
+        return false;
+    }
+    else
+    {
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(email.value.match(mailformat))
+	{
+	    document.getElementById("provide").style.display="none";
+	    return true;
+	}
+	else
+	{
+	    document.getElementById("provide").style.display="inline-block";
+	    document.myForm.emailid.value="";
+	    return false;
+	}
+    }
+}
+function Validate(website)
+{
+    if(website.value == "")
+    {
+	document.getElementById("prov").style.display="inline-block";
+	return false;
+    }
+    else
+    {
+        var webformat = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+	if(website.value.match(webformat))
+	{
+	    document.getElementById("prov").style.display="none";
+	    return true;
+	}
+	else
+	{
+	    document.getElementById("prov").style.display="inline-block";
+	    document.myForm.website.value="";
+	    return false;
+	}
+    }
+}
+function CheckPassword(passwd)
+    {
+	var passwdformat=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	if(passwd.value == "")
+	{
+		alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+		return false;
+	}
+	else
+	{
+	if(passwd.value.match(passwdformat))
+	{
+		return true;
+	}
+	else
+	{
+		alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+		document.myForm.passwd.focus();
+		document.myForm.passwd.value="";
+		return false;
+	}
+	}
+    }
+function confirmPasswd() {
+	if(document.getElementById("confirmpasswrd").value=="")
+	{
+		document.getElementById("providet").style.display="inline-block";
+		return false;
+	}
+	else
+	{
+	if(document.getElementById("passwrd").value != document.getElementById("confirmpasswrd").value)
+	{
+		document.getElementById("providet").style.display="inline-block";
+		document.myForm.confirm_passwd.focus();
+		document.myForm.confirm_passwd.value="";
+		return false;
+	}
+	else
+	{
+	    document.getElementById("providet").style.display="none";
+	    return true;
+	}
+	}
+    }
+function phonenumber()
+    {
+	var x = document.myForm.mobile_no.value;
+	if(x=="")
+	{
+		document.getElementById("provideg").style.display="inline-block";
+		return false;
+	}
+	else
+	{
+	if(isNaN(x)||x.indexOf(" ")!=-1 || x.length!=10)
+	
+	{
+		document.getElementById("provideg").style.display="inline-block";
+	        document.myForm.mobile_no.focus();
+	        document.myForm.mobile_no.value="";
+		return false;
+	}
+	else
+	{
+		document.getElementById("provideg").style.display="none";
+		return true;
+	}
+	}
+    }
+function validateform()
+    {
+    if(document.myForm.emailid.value=="")
+    {
+	document.getElementById("provide").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.website.value=="")
+    {
+	document.getElementById("prov").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.passwd.value=="")
+    {
+	alert("Password should be 6 to 20 characters long,\ncontains at least one numeric digit,\n one uppercase and one lowercase letter");
+	return false;
+    }
+    else if(document.getElementById("confirmpasswrd").value=="")
+    {
+	document.getElementById("providet").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.mobile_no.value=="")
+    {
+	document.getElementById("provideg").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.agree.checked != 1)
+    {
+	document.getElementById("provido").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.location.value=="")
+    {
+	document.getElementById("pro").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.company.value=="")
+    {
+	document.getElementById("provid").style.display="inline-block";
+	return false;
+    }
+    else if(document.myForm.contact.value=="")
+    {
+	document.getElementById("provi").style.display="inline-block";
+	return false;
+    }
+    else
+    {
+	return true;
+    }
+    }
+function agreement()
+    {
+        if(document.myForm.agree.checked != 1)
+	{
+	    document.getElementById("provido").style.display="inline-block";
+	    return false;
+	}
+	else
+	{
+	    document.getElementById("provido").style.display="none";
+	    return true;
+	}
+    }
+function checkcompany()
+    {
+	if(document.myForm.company.value=="")
+        {
+	    document.getElementById("provid").style.display="inline-block";
+	    return false;
+	}
+	else
+	{
+	    document.getElementById("provid").style.display="none";
+	    return true;
+	}
+    }
+function checkcontact()
+    {
+	if(document.myForm.contact.value=="")
+        {
+	    document.getElementById("provi").style.display="inline-block";
+	    return false;
+	}
+	else
+	{
+	    document.getElementById("provi").style.display="none";
+	    return true;
+	}
+    }
+function checklocation(location)
+    {
+	if(document.myForm.location.value=="")
+        {
+	    document.getElementById("pro").style.display="inline-block";
+	    return false;
+        }
+	else
+	{
+	    document.getElementById("pro").style.display="none";
+	    return true;
+	}
+    }
+function alidate(email)
+    {
+        if(email.value == "")
+    {
+	document.getElementById("verify").style.display="inline-block";
+        return false;
+    }
+    else
+    {
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(email.value.match(mailformat))
+	{
+	    document.getElementById("verify").style.display="none";
+	    return true;
+	}
+	else
+	{
+	    document.getElementById("verify").style.display="inline-block";
+	    document.myForm.emailid.value="";
+	    return false;
+	}
+    }
+    }
+function CheckPasswd(passwd)
+    {
+        var passwdformat=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	if(passwd.value == "")
+	{
+		document.getElementById("hiddenalert").style.display="inline-block";
+		return false;
+	}
+	else
+	{
+	if(passwd.value.match(passwdformat))
+	{
+		document.getElementById("hiddenalert").style.display="none";
+		return true;
+	}
+	else
+	{
+		document.getElementById("hiddenalert").style.display="inline-block";
+		document.Form.passwd.value="";
+		return false;
+	}
+	}
+    }
+function ValidateForm()
+    {
+        if(document.Form.email.value=="")
+	{
+	    document.getElementById("verify").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.passwd.value=="")
+	{
+	    document.getElementById("hiddenalert").style.display="inline-block";
+	    return false;
+	}
+	else
+	{
+	    return true;
+	}
+    }
+</script>
+</body>
+</html>

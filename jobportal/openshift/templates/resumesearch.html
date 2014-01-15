@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Jobs Finder-Search Resume</title>
+</head>
+
+<body onload="createoption(),expcreateoption(),createoptionsalary()">
+<center>
+<div class="nav">
+<center>
+<div class="header">
+    <div class="navbar home" id="drop"><span id="shift" style="color:black"><a href="/">Home</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/signup/">Job Seeker Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/resumeservice/">Resume Services</a></span></div>
+    <div class="navbar recruiter" id="drop"><span id="shift" style="color:black"><a href="/edit_profile/">Post Resume</a></span></div>
+    <div class="navbar search_job" id="drop"><span id="shift" style="color:black"><a href="/searchjob/">Search Jobs</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/recruiter/">Employer Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/postjob/">Post a Job</a></span></div>
+    <div class="navbar last" id="drop"><span id="shift" style="color:black"><a href="/buyonline/">Buy Online</a></span></div>
+</div>
+</center>
+</div>
+
+<div class="arrange">
+<form action="/findresumes/" name="myForm" method="post">{% csrf_token %}
+<table>
+<th colspan="3"><div class="heading"><span class="headtext">Search Resume</span></div></th>
+<tr><td><br/></td></tr>
+<tr><td><div class="arrow_box"><span class="array">Basic Details</span</div></td></tr>
+<tr><td><br/></td></tr>
+<tr>
+<td>Location:</td><td class="gap"></td><td><input type="text" name="location" placeholder="Enter Location"/></td>
+</tr>
+<tr>
+<td>Experience:</td>
+<td class="gap"></td>
+<td>
+    <select id="minexp" name="expmin" onchange="unique()">
+    <option value="">Select</option>
+    </select>
+    to
+    <select id="maxexp" name="expmax">
+    <option value="">Select</option>
+    </select>
+</td>
+</tr>
+<tr>
+<td>Salary:</td>
+<td class="gap"></td>
+<td>
+	<select name="minsalary" id="salarymin" onchange="createoptionsalarynext()">
+	<option value="">--Min. Salary--</option>
+	</select>to
+	<select name="maxsalary" id="salarymax">
+	<option value="">--Max. Salary--</option>
+	</select>
+</td>
+</tr>
+<tr><td><br/></td></tr>
+<tr><td><div class="arrow_box" id="special"><span class="array">Employment Details</span</div></td></tr>
+<tr><td><br/></td></tr>
+<tr>
+<td>Job Title:</td><td class="gap"></td><td><input type="text" name="title" placeholder="Enter Job Title"/></td>
+</tr>
+<tr>
+<td>Skills:</td><td class="gap"></td><td><input type="text" name="skills" placeholder="Enter Skills"/></td>
+</tr>
+<tr>
+<td>Company Sector:</td>
+<td class="gap"></td>
+<td>
+    <select name="sector">
+    <option value="">Select</option>
+    <option value="none" style="font-weight:bold;">-----Top Sectors-----</option>
+        <option value="IT-Software/Software Services">IT-Software/Software Services</option>
+    	<option value="Accounting/Finance">Accounting/Finance</option>
+    	<option value="Fresher/Trainee">Fresher/Trainee</option>
+    	<option value="Banking">Banking</option>
+    	<option value="Financial Services">Financial Services</option>
+    	<option value="Engineering/Construction">Engineering/Construction</option>
+    	<option value="Education/Training">Education/Training</option>
+    	<option value="BPO/Call Center">BPO/Call Center</option>
+    	<option value="IT Hardware/Networking">IT Hardware/Networking</option>
+    	<option value="Automobile">Automobile</option>
+    	<option value="Telecom">Telecom</option>
+    	<option value="Medical/Health Care">Medical/Health Care</option>
+    	<option value="Other Sectors" style="font-weight:bold;">-----Other Sectors-----</option>
+    	<option value="Advertising/MR/PR/Events">Advertising/MR/PR/Events</option>
+    	<option value="Agriculture/Dairy">Agriculture/Dairy</option>
+    	<option value="Architecture/Interior Design">Architecture/Interior Design</option>
+    	<option value="Astrology">Astrology</option>
+    	<option value="Aviation/Airline">Aviation/Airline</option>
+    	<option value="Cement/Building Material">Cement/Building Material</option>
+    	<option value="Chemical/Plastic/Rubber/Glass">Chemical/Plastic/Rubber/Glass</option>
+    	<option value="Consumer Durables/Electronics">Consumer Durables/Electronics</option>
+    	<option value="Environment/Waste Management">Environment/Waste Management</option>
+    	<option value="Export-Import/Trading">Export-Import/Trading</option>
+    	<option value="Fertilizers/Pesticides">Fertilizers/Pesticides</option>
+    	<option value="FMCG/F&B">FMCG/F&B</option>
+    	<option value="Furnishings/Sanitaryware/Electricals">Furnishings/Sanitaryware/Electricals</option>
+    	<option value="Gems/Jewellery">Gems/Jewellery</option>
+    	<option value="Gifts/Toys/Stationary">Gifts/Toys/Stationary</option>
+    	<option value="Government Department">Government Department</option>
+    	<option value="Hotel/Restaurant">Hotel/Restaurant</option>
+    	<option value="Industrial Design">Industrial Design</option>
+    	<option value="Insurance">Insurance</option>
+    	<option value="KPO/Analytics">KPO/Analytics</option>
+    	<option value="Legal" {% if profile.sector == "Legal" %}selected="selected"{% endif %}>Legal</option>
+    	<option value="Logistics/Courier/Transportation">Logistics/Courier/Transportation</option>
+    	<option value="Management Consulting/Strategy">Management Consulting/Strategy</option>
+    	<option value="Matrimony">Matrimony</option>
+    	<option value="Media/Dotcom/Entertainment">Media/Dotcom/Entertainment</option>
+    	<option value="Merchant Navy">Merchant Navy</option>
+    	<option value="Metal/Iron/Steel">Metal/Iron/Steel</option>
+    	<option value="Military/Police/Arms & Ammunition">Military/Police/Arms & Ammunition</option>
+    	<option value="Mining">Mining</option>
+    	<option value="NGO/Social Work">NGO/Social Work</option>
+    	<option value="Oil & Gas/Petroleum">Oil & Gas/Petroleum</option>
+    	<option value="Paint">Paint</option>
+    	<option value="Paper/Wood">Paper/Wood</option>
+    	<option value="Personal Care/Beauty">Personal Care/Beauty</option>
+    	<option value="Pharma/Biotech">Pharma/Biotech</option>
+    	<option value="Politics">Politics</option>
+    	<option value="Power/Energy">Power/Energy</option>
+    	<option value="Printing/Packaging">Printing/Packaging</option>
+    	<option value="Quality Certification">Quality Certification</option>
+    	<option value="Real Estate">Real Estate</option>
+    	<option value="Recruitment Services">Recruitment Services</option>
+    	<option value="Religion/Sprituality">Religion/Sprituality</option>
+    	<option value="Retail">Retail</option>
+    	<option value="Sculpture/Craft">Sculpture/Craft</option>
+    	<option value="Security/Detective Services">Security/Detective Services</option>
+    	<option value="Sports/Fitness">Sports/Fitness</option>
+    	<option value="Textile/Garments/Fashion">Textile/Garments/Fashion</option>
+    	<option value="Travel/Tourism">Travel/Tourism</option>
+    	<option value="Unskilled Labour/Domestic Help">Unskilled Labour/Domestic Help</option>
+    	<option value="Veterinary Science/Pet Care">Veterinary Science/Pet Care</option>
+    	<option value="Water Treatment/Waste Management">Water Treatment/Waste Management</option>
+    	<option value="Others">Others</option>
+    </select>
+</td>
+</tr>
+<tr>
+<td>Functional Area</td>
+<td class="gap"></td>
+<td>
+<select name="functional">
+    <option value="">Select</option>
+    <option value="none" style="font-weight:bold;">-----Top Areas-----</option>
+    	<option value="Accounts/Finance/Tax/CS/Audit">Accounts/Finance/Tax/CS/Audit</option>
+    	<option value="Production/Maintenance/Quality">Production/Maintenance/Quality</option>
+    	<option value="IT Software-Application Programming/Maintenance">IT Software-Application Programming/Maintenance</option>
+    	<option value="Banking/Insurance">Banking/Insurance</option>
+    	<option value="ITES/BPO/KPO/Customer Service/Operations">ITES/BPO/KPO/Customer Service/Operations</option>
+    	<option value="none">-----Other Areas-----</option>
+    	<option value="Agent">Agent</option>
+    	<option value="Analytics & Business Intelligence">Analytics & Business Intelligence</option>
+    	<option value="Architecture/Interior Design">Architecture/Interior Design</option>
+    	<option value="Content/Journalism">Content/Journalism</option>
+    	<option value="Corporate Planning/Consulting">Corporate Planning/Consulting</option>
+    	<option value="Enginnering Design/R&D">Enginnering Design/R&D</option>
+    	<option value="Export/Import/Merchadising">Export/Import/Merchadising</option>
+    	<option value="Fashion/Garments/Merchandising">Fashion/Garments/Merchandising</option>
+    	<option value="Guards/Security Services">Guards/Security Services</option>
+    	<option value="Hotels/Restaurants">Hotels/Restaurants</option>
+    	<option value="HR/Administration/IR">HR/Administration/IR</option>
+    	<option value="IT Software-Client Server">IT Software-Client Server</option>
+    	<option value="IT Software-Mainframe">IT Software-Mainframe</option>
+    	<option value="IT Software-Middleware">IT Software-Middleware</option>
+    	<option value="IT Software-Mobile">IT Software-Mobile</option>
+    	<option value="IT Software-Other">IT Software-Other</option>
+    	<option value="IT Software-System Programming">IT Software-System Programming</option>
+    	<option value="IT Software-Telecom Software">IT Software-Telecom Software</option>
+    	<option value="IT Software-DBA/Dataware housing">IT Software-DBA/Dataware housing</option>
+    	<option value="IT Software-E-commerce/Internet Technologies">IT Software-E-commerce/Internet Technologies</option>
+    	<option value="IT Software-Embedded/EDA/VLSI/ASIC/Chip Des.">IT Software-Embedded/EDA/VLSI/ASIC/Chip Des.</option>
+    	<option value="IT Software-ERP/CRM">IT Software-ERP/CRM</option>
+    	<option value="IT Software-Network Administration/Security">IT Software-Network Administration/Security</option>
+    	<option value="IT Software-QA & Testing">IT Software-QA & Testing</option>
+    	<option value="IT Software-Systems/EDP/MIS">IT Software-Systems/EDP/MIS</option>
+    	<option value="IT-Hardware/Telecom/Technical Staff/Support">IT-Hardware/Telecom/Technical Staff/Support</option>
+    	<option value="Legal">Legal</option>
+    	<option value="Marketing/Advertising/MR/PR">Marketing/Advertising/MR/PR</option>
+    	<option value="Packaging">Packaging</option>
+    	<option value="Pharma/Biotech/Healthcare/Medical/R&D">Pharma/Biotech/Healthcare/Medical/R&D</option>
+    	<option value="Purchase/Logistics/Supply Chain">Purchase/Logistics/Supply Chain</option>
+    	<option value="Sales/BD">Sales/BD</option>
+    	<option value="Secretary/Front Office/Data Entry">Secretary/Front Office/Data Entry</option>
+    	<option value="Self Employed/Consultants">Self Employed/Consultants</option>
+    	<option value="Shipping">Shipping</option>
+    	<option value="Site Engineering/Project Management">Site Engineering/Project Management</option>
+    	<option value="Teaching/Education">Teaching/Education</option>
+    	<option value="Ticketing/Travel/Airlines">Ticketing/Travel/Airlines</option>
+    	<option value="Top Management">Top Management</option>
+    	<option value="TV/Films/Production">TV/Films/Production</option>
+    	<option value="Web/Graphic Design/Visualiser">Web/Graphic Design/Visualiser</option>
+    	<option value="Other">Other</option>
+    </select>
+</tr>
+<tr><td><br/></td></tr>
+<tr><td><div class="arrow_box" id="special"><span class="array">Educational Details</span</div></td></tr>
+<tr><td><br/></td></tr>
+<tr>
+<td>Qualification:</td>
+<td class="gap"></td>
+    <td>
+    <select name="qualification">
+    <option value="">----Select Highest Qualification----</option>
+    <option value="Illiterate">Illiterate</option>
+    <option value="10th or below">10th or below</option>
+    <option value="10+2">10+2</option>
+    <option value="Diploma or Equivalent">Diploma or Equivalent</option>
+    <option value="Graduation">Graduation</option>
+    <option value="PG or Equivalent">PG or Equivalent</option>
+    <option value="PhD/MPhil or Equivalent">PhD/MPhil or Equivalent</option>
+    </select>
+    </td>
+</tr>
+<tr>
+<td>Education Specialization:</td><td class="gap"></td><td><input type="text" name="specialization" placeholder="Enter specialization"/></td>
+</tr>
+<tr>
+<td>Certification Courses:</td><td class="gap"></td><td><input type="text" name="certification" placeholder="Enter Certification"/></td>
+</tr>
+<tr>
+<td>Year of Passing:</td>
+<td class="gap"></td>
+<td>
+<select id="minpass" name="passingmin" onchange="createoptionnext()">
+<option value="">--Min--</option>
+</select>
+to
+<select id="maxpass" name="passingmax">
+<option value="">--Max--</option>
+</select>
+</td>
+</tr>
+<tr><td><br/></td></tr>
+<tr><td><div class="arrow_box" id="special"><span class="array">Additional Details</span</div></td></tr>
+<tr><td><br/></td></tr>
+<tr>
+<td>Candidate seeking Job Type:</td>
+<td class="gap"></td>
+    <td>
+    <input type="radio" name="course" id="form_align" value="Full Time" style="font-size:15px;"/> Full Time
+    <input type="radio" name="course" id="form_align" value="Part Time" style="font-size:15px;"/> Part Time
+    <input type="radio" name="course" id="form_align" value="Internship" style="font-size:15px;"/> Internship
+    </td>
+</tr>
+<tr>
+<td>Show Candidates with:</td> 
+</tr>
+<tr>
+<td></td><td class="gap"></td><td><input type="checkbox" name="attached"/>Attached Resume</td>
+</tr>
+<tr>
+<td></td><td class="gap"></td><td><input type="checkbox" name="confirmmail"/>Confirmed Email</td>
+</tr>
+<tr>
+<td></td><td class="gap"></td><td><input type="checkbox" name="confirmmobile"/>Confirmed Mobile</td>
+</tr>
+<tr>
+<td>Candidate Active in last:</td>
+<td class="gap"></td>
+<td>
+<select name="active">
+<option value="">--Select--</option>
+<option value="2">2 days</option>
+<option value="5">5 days</option>
+<option value="10">10 days</option>
+<option value="20">20 days</option>
+<option value="30">30 days</option>
+<option value="61">2 months</option>
+<option value="90">3 months</option>
+<option value="153">5 months</option>
+<option value="214">7 months</option>
+<option value="275">9 months</option>
+<option value="365">1 year</option>
+<option value="1000">1 year+</option>
+</select>
+</td>
+</tr>
+<tr><td><br/></td></tr>
+<tr><td><br/></td></tr>
+<th colspan="3"><input type="submit" class="find" name="findresumes" value="Find Resumes"/></th>
+</table>
+</form>
+</div>
+
+
+<div class="end_bar">
+<center>
+    <div class="ending"><a href="#">Feedback</a></div>
+    <div class="ending"><a href="#">FAQ</a></div>
+    <div class="ending"><a href="#">About us</a></div>
+    <div class="ending"><a href="#">Contact us</a></div>
+    <div class="ending"><a href="#">Privacy Policy</a></div>
+    <div class="ending"><a href="#">Security Advice</a></div>
+    <div class="ending"><a href="#">Terms & Condition</a></div>
+    <div class="ending lasting"><a href="#">Disclaimer</a></div>
+</center>
+</div>
+
+</center>
+
+<style>
+.nav {
+	width:83.6em;
+	height:2.9em;
+	background: rgba(76,76,76,1);
+background: rgba(210,255,82,1);
+background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(43%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+border-bottom: 5px solid orange;
+}
+.navbar:hover {
+        box-shadow:0 0 0 0 ;
+}
+.navbar {
+        box-shadow:0 0 5px rgba(0,0,0,0.8);
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    position:relative;
+    width: 10em;
+    height: 2em;
+    margin-left: 2px;
+    font-size:12px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.header {
+        position:relative;
+	top:1em;
+}
+.last {
+    border-right: 1px solid black;
+}
+#shift {
+    position:relative;
+    top:0.5em;
+}
+a {
+    text-decoration:none;
+    color:black;
+}
+a:hover {
+    text-decoration:underline;
+}
+.arrange {
+    border:2px solid orange;
+    position:relative;
+    display:inline-block;
+    top:2em;
+    border-radius:5px;
+    padding:10px;
+}
+.heading {
+height:3em;
+border-radius:5px;
+background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+.headtext {
+    position:relative;
+    font-size:1.5em;
+    top:0.5em;
+}
+.arrow_box {
+	position: relative;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+        height:2em;
+	width:12em;
+}
+.arrow_box:after, .arrow_box:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #88b7d5;
+	border-width: 16px;
+	margin-top: -16px;
+}
+.arrow_box:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-left-color: #c2e1f5;
+	border-width: 22px;
+	margin-top: -22px;
+}
+.array {
+    font-weight:bold;
+    position:relative;
+    top:0.2em;
+    font-size:1.1em;
+    left:0.5em;
+}
+.gap {
+    width:6em;
+}
+.find {
+   font-size: 1.2em;
+background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+.end_bar {
+    background-color:#a8a8a8;
+    height: 3em;
+    width:83.6em;
+    border-top:1px solid black;
+    margin-top: 10em;
+}
+.ending {
+    display: inline-block;
+    border-right:1px solid black;
+    width:10em;
+    position: relative;
+    top: 1em;
+}
+.lasting {
+    border-right: 0px none;
+}
+</style>
+<script>
+function createoption(){
+var min = 1940;
+var max = 2017;
+var x = document.getElementById("minpass");
+for(var i = min; i<=max; i++) {
+var option = document.createElement("option");
+option.value = i;
+option.text = i;
+x.add(option);
+}}
+function createoptionnext(){
+    max=2017;
+    var z = document.getElementById("minpass").value;
+    var y = document.getElementById("maxpass");
+    document.myForm.passingmax.options.length=1;
+    if(z !=  "")
+    {
+        for(var i = z; i<=max; i++){
+    	    var option = document.createElement("option");
+    	    option.value = i;
+    	    option.text = i;
+    	    y.add(option);
+    }}}
+function expcreateoption() {
+    var min = 0;
+    var max = 29;
+    var x = document.getElementById("minexp");
+    for(var i = min; i<=max; i++) {
+	var option = document.createElement("option");
+	option.value=i;
+	option.text= i + ' years';
+	x.add(option);
+    }
+    var option = document.createElement("option");
+    option.value=30;
+    option.text= i + '+ years';
+    x.add(option);
+}
+function unique(){
+    var max = 29;
+    var z = document.getElementById("minexp").value;
+    var y = document.getElementById("maxexp");
+    document.myForm.expmax.options.length=1;
+    if(z != "")
+    {
+	for(var i = z; i<=max; i++){
+	    var option = document.createElement("option");
+	    option.value=i;
+	    option.text= i + ' years';
+	    y.add(option);
+    }
+    var option = document.createElement("option");
+    option.value=30;
+    option.text= i + '+ years';
+    y.add(option);
+    }}
+function createoptionsalary(){
+    var min = 0.0;
+    var max = 50.0;
+    var x = document.getElementById("salarymin");
+    for(var i = min; i<=max; i=i+0.5) {
+    var option = document.createElement("option");
+    option.value = i;
+    option.text = 'Rs '+ i+' Lacs/Year';
+    x.add(option);
+    }}
+function createoptionsalarynext() {
+    var max = 50.0;
+    var z = document.getElementById("salarymin").value;
+    var y = document.getElementById("salarymax");
+    document.myForm.maxsalary.options.length=1;
+    if(parseFloat(z) != "")
+    {
+	for(var i = parseFloat(z); i<=max; i=i+0.5){
+    	    var option = document.createElement("option");
+    	    option.value = i;
+    	    option.text = 'Rs '+ i+' Lacs/Year';
+    	    y.add(option);
+    	}
+    }
+}
+</script>
+</body>
+</html>

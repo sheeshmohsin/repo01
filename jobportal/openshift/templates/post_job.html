@@ -1,0 +1,712 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Jobs Finder-Post a Job</title>
+</head>
+
+<body>
+<center>
+<div class="nav">
+<center>
+<div class="header">
+    <div class="navbar home" id="drop"><span id="shift" style="color:black"><a href="/">Home</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/signup/">Job Seeker Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/resumeservice/">Resume Services</a></span></div>
+    <div class="navbar recruiter" id="drop"><span id="shift" style="color:black"><a href="/edit_profile/">Post Resume</a></span></div>
+    <div class="navbar search_job" id="drop"><span id="shift" style="color:black"><a href="/searchjob/">Search Jobs</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/recruiter/">Employer Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/postjob/">Post a Job</a></span></div>
+   <div class="navbar last" id="drop"><span id="shift" style="color:black"><a href="/buyonline/">Buy Online</a></span></div>
+</div>
+</center>
+</div>
+<div class="profilelink same"><h3><a href="/rprofile/">Profile</a></h3></div><div class="signout same">({{ email }}) <a href="/rlogout/" style="font-weight:bold;">Logout</a></div>
+<div class="both">
+<div class="full form">
+	<div><center><span class="complete">Job Posting Details</span></center></div>
+<form action="/post_job/" method="post" name="Form" onsubmit="return(validateform())">{% csrf_token %}
+    <table class="posting">
+	<th colspan="2"><div class="register"><span class="arrange">Job Details</span></div></th>
+	<tr><td><br/><br/></td></tr>
+	<tr>
+	<td class="form-text">Job Title: </td>
+	<td><input type="text" name="title" placeholder="Enter the Job Title"/><br/><span id="provide" style="color:red">Job title is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Job Description: </td>
+	<td><textarea name="description" rows=5 cols=30 placeholder="Enter Description of Job"></textarea><br/><span id="provid" style="color:red">Description is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Employer's Industry: </td>
+	<td>
+	<select name="industry">
+	<option value="none">--Select--</option>
+        <option value="none" style="font-weight:bold;">-----Top Sectors-----</option>
+        <option value="IT-Software/Software Services">IT-Software/Software Services</option>
+    	<option value="Accounting/Finance">Accounting/Finance</option>
+    	<option value="Fresher/Trainee">Fresher/Trainee</option>
+    	<option value="Banking">Banking</option>
+    	<option value="Financial Services">Financial Services</option>
+    	<option value="Engineering/Construction">Engineering/Construction</option>
+    	<option value="Education/Training">Education/Training</option>
+    	<option value="BPO/Call Center">BPO/Call Center</option>
+    	<option value="IT Hardware/Networking">IT Hardware/Networking</option>
+    	<option value="Automobile">Automobile</option>
+    	<option value="Telecom">Telecom</option>
+    	<option value="Medical/Health Care">Medical/Health Care</option>
+    	<option value="" style="font-weight:bold;">-----Other Sectors-----</option>
+    	<option value="Advertising/MR/PR/Events">Advertising/MR/PR/Events</option>
+    	<option value="Agriculture/Dairy">Agriculture/Dairy</option>
+    	<option value="Architecture/Interior Design">Architecture/Interior Design</option>
+    	<option value="Astrology">Astrology</option>
+    	<option value="Aviation/Airline">Aviation/Airline</option>
+    	<option value="Cement/Building Material">Cement/Building Material</option>
+    	<option value="Chemical/Plastic/Rubber/Glass">Chemical/Plastic/Rubber/Glass</option>
+    	<option value="Consumer Durables/Electronics">Consumer Durables/Electronics</option>
+    	<option value="Environment/Waste Management">Environment/Waste Management</option>
+    	<option value="Export-Import/Trading">Export-Import/Trading</option>
+    	<option value="Fertilizers/Pesticides">Fertilizers/Pesticides</option>
+    	<option value="FMCG/F&B">FMCG/F&B</option>
+    	<option value="Furnishings/Sanitaryware/Electricals">Furnishings/Sanitaryware/Electricals</option>
+    	<option value="Gems/Jewellery">Gems/Jewellery</option>
+    	<option value="Gifts/Toys/Stationary">Gifts/Toys/Stationary</option>
+    	<option value="Government Department">Government Department</option>
+    	<option value="Hotel/Restaurant">Hotel/Restaurant</option>
+    	<option value="Industrial Design">Industrial Design</option>
+    	<option value="Insurance">Insurance</option>
+    	<option value="KPO/Analytics">KPO/Analytics</option>
+    	<option value="Legal">Legal</option>
+    	<option value="Logistics/Courier/Transportation">Logistics/Courier/Transportation</option>
+    	<option value="Management Consulting/Strategy">Management Consulting/Strategy</option>
+    	<option value="Matrimony">Matrimony</option>
+    	<option value="Media/Dotcom/Entertainment">Media/Dotcom/Entertainment</option>
+    	<option value="Merchant Navy">Merchant Navy</option>
+    	<option value="Metal/Iron/Steel">Metal/Iron/Steel</option>
+    	<option value="Military/Police/Arms & Ammunition">Military/Police/Arms & Ammunition</option>
+    	<option value="Mining">Mining</option>
+    	<option value="NGO/Social Work">NGO/Social Work</option>
+    	<option value="Oil & Gas/Petroleum">Oil & Gas/Petroleum</option>
+    	<option value="Paint">Paint</option>
+    	<option value="Paper/Wood">Paper/Wood</option>
+    	<option value="Personal Care/Beauty">Personal Care/Beauty</option>
+    	<option value="Pharma/Biotech">Pharma/Biotech</option>
+    	<option value="Politics">Politics</option>
+    	<option value="Power/Energy">Power/Energy</option>
+    	<option value="Printing/Packaging">Printing/Packaging</option>
+    	<option value="Quality Certification">Quality Certification</option>
+    	<option value="Real Estate">Real Estate</option>
+    	<option value="Recruitment Services">Recruitment Services</option>
+    	<option value="Religion/Sprituality">Religion/Sprituality</option>
+    	<option value="Retail">Retail</option>
+    	<option value="Sculpture/Craft">Sculpture/Craft</option>
+    	<option value="Security/Detective Services">Security/Detective Services</option>
+    	<option value="Sports/Fitness">Sports/Fitness</option>
+    	<option value="Textile/Garments/Fashion">Textile/Garments/Fashion</option>
+    	<option value="Travel/Tourism">Travel/Tourism</option>
+    	<option value="Unskilled Labour/Domestic Help">Unskilled Labour/Domestic Help</option>
+    	<option value="Veterinary Science/Pet Care">Veterinary Science/Pet Care</option>
+    	<option value="Water Treatment/Waste Management">Water Treatment/Waste Management</option>
+    	<option value="Others">Others</option>
+	</select>
+	<br/><span id="provi" style="color:red">Industry is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Functional Area: </td>
+	<td>
+	<select name="functional">
+	<option value="none" style="font-weight:bold;">-----Top Areas-----</option>
+    	<option value="Accounts/Finance/Tax/CS/Audit">Accounts/Finance/Tax/CS/Audit</option>
+    	<option value="Production/Maintenance/Quality">Production/Maintenance/Quality</option>
+    	<option value="IT Software-Application Programming/Maintenance">IT Software-Application Programming/Maintenance</option>
+    	<option value="Banking/Insurance">Banking/Insurance</option>
+    	<option value="ITES/BPO/KPO/Customer Service/Operations">ITES/BPO/KPO/Customer Service/Operations</option>
+    	<option value="none">-----Other Areas-----</option>
+    	<option value="Agent">Agent</option>
+    	<option value="Analytics & Business Intelligence">Analytics & Business Intelligence</option>
+    	<option value="Architecture/Interior Design">Architecture/Interior Design</option>
+    	<option value="Content/Journalism">Content/Journalism</option>
+    	<option value="Corporate Planning/Consulting">Corporate Planning/Consulting</option>
+    	<option value="Enginnering Design/R&D">Enginnering Design/R&D</option>
+    	<option value="Export/Import/Merchadising">Export/Import/Merchadising</option>
+    	<option value="Fashion/Garments/Merchandising">Fashion/Garments/Merchandising</option>
+    	<option value="Guards/Security Services">Guards/Security Services</option>
+    	<option value="Hotels/Restaurants">Hotels/Restaurants</option>
+    	<option value="HR/Administration/IR">HR/Administration/IR</option>
+    	<option value="IT Software-Client Server">IT Software-Client Server</option>
+    	<option value="IT Software-Mainframe">IT Software-Mainframe</option>
+    	<option value="IT Software-Middleware">IT Software-Middleware</option>
+    	<option value="IT Software-Mobile">IT Software-Mobile</option>
+    	<option value="IT Software-Other">IT Software-Other</option>
+    	<option value="IT Software-System Programming">IT Software-System Programming</option>
+    	<option value="IT Software-Telecom Software">IT Software-Telecom Software</option>
+    	<option value="IT Software-DBA/Dataware housing">IT Software-DBA/Dataware housing</option>
+    	<option value="IT Software-E-commerce/Internet Technologies">IT Software-E-commerce/Internet Technologies</option>
+    	<option value="IT Software-Embedded/EDA/VLSI/ASIC/Chip Des.">IT Software-Embedded/EDA/VLSI/ASIC/Chip Des.</option>
+    	<option value="IT Software-ERP/CRM">IT Software-ERP/CRM</option>
+    	<option value="IT Software-Network Administration/Security">IT Software-Network Administration/Security</option>
+    	<option value="IT Software-QA & Testing">IT Software-QA & Testing</option>
+    	<option value="IT Software-Systems/EDP/MIS">IT Software-Systems/EDP/MIS</option>
+    	<option value="IT-Hardware/Telecom/Technical Staff/Support">IT-Hardware/Telecom/Technical Staff/Support</option>
+    	<option value="Legal">Legal</option>
+    	<option value="Marketing/Advertising/MR/PR">Marketing/Advertising/MR/PR</option>
+    	<option value="Packaging">Packaging</option>
+    	<option value="Pharma/Biotech/Healthcare/Medical/R&D">Pharma/Biotech/Healthcare/Medical/R&D</option>
+    	<option value="Purchase/Logistics/Supply Chain">Purchase/Logistics/Supply Chain</option>
+    	<option value="Sales/BD">Sales/BD</option>
+    	<option value="Secretary/Front Office/Data Entry">Secretary/Front Office/Data Entry</option>
+    	<option value="Self Employed/Consultants">Self Employed/Consultants</option>
+    	<option value="Shipping">Shipping</option>
+    	<option value="Site Engineering/Project Management">Site Engineering/Project Management</option>
+    	<option value="Teaching/Education">Teaching/Education</option>
+    	<option value="Ticketing/Travel/Airlines">Ticketing/Travel/Airlines</option>
+    	<option value="Top Management">Top Management</option>
+    	<option value="TV/Films/Production">TV/Films/Production</option>
+    	<option value="Web/Graphic Design/Visualiser">Web/Graphic Design/Visualiser</option>
+    	<option value="Other">Other</option>
+	</select>
+	<br/><span id="prov" style="color:red">Functional area is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Experience Required: </td>
+	<td>
+	<select name="minexp">
+	<option value="none">--Min. Exp--</option>
+	<option value="0">Fresher</option>
+	<option value="1">1  </option>
+	<option value="2">2  </option>
+	<option value="3">3  </option>
+	<option value="4">4  </option>
+	<option value="5">5  </option>
+	<option value="6">6  </option>
+	<option value="7">7  </option>
+	<option value="8">8  </option>
+	<option value="9">9  </option>
+	<option value="10">10  </option>
+	<option value="11">11  </option>
+	<option value="12">12  </option>
+	<option value="13">13  </option>
+	<option value="14">14  </option>
+	<option value="15">15  </option>
+	<option value="16">16  </option>
+	<option value="17">17  </option>
+	<option value="18">18  </option>
+	<option value="19">19  </option>
+	<option value="20">20  </option>
+	<option value="21">21  </option>
+	<option value="22">22  </option>
+	<option value="23">23  </option>
+	<option value="24">24  </option>
+	<option value="25">25  </option>
+	<option value="26">26  </option>
+	<option value="27">27  </option>
+	<option value="28">28  </option>
+	<option value="29">29  </option>
+	<option value="30">30+  </option>
+	</select>
+	<select name="maxexp">
+	<option value="none">--Max. Exp--</option>
+	<option value="Fresher">Fresher</option>
+	<option value="1">1  </option>
+	<option value="2">2  </option>
+	<option value="3">3  </option>
+	<option value="4">4  </option>
+	<option value="5">5  </option>
+	<option value="6">6  </option>
+	<option value="7">7  </option>
+	<option value="8">8  </option>
+	<option value="9">9  </option>
+	<option value="10">10  </option>
+	<option value="11">11  </option>
+	<option value="12">12  </option>
+	<option value="13">13  </option>
+	<option value="14">14  </option>
+	<option value="15">15  </option>
+	<option value="16">16  </option>
+	<option value="17">17  </option>
+	<option value="18">18  </option>
+	<option value="19">19  </option>
+	<option value="20">20  </option>
+	<option value="21">21  </option>
+	<option value="22">22  </option>
+	<option value="23">23  </option>
+	<option value="24">24  </option>
+	<option value="25">25  </option>
+	<option value="26">26  </option>
+	<option value="27">27  </option>
+	<option value="28">28  </option>
+	<option value="29">29  </option>
+	<option value="30">30+  </option>
+	</select>
+	<br/><span id="pro" style="color:red">Min. experience is required</span>
+	<br/><span id="providet" style="color:red">Max. experience is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Annual Salary Offered: </td>
+	<td>
+	<select name="minsalary">
+	<option value="none">--Min. Salary--</option>
+	<option value="< Rs 50,000/Yr">< Rs 50,000/Yr</option>
+	<option value="Rs 50,000/Yr">Rs 50,000/Yr</option>
+	<option value="Rs 1.0 Lakh/Yr">Rs 1.0 Lakh/Yr</option>
+	<option value="Rs 1.5 Lakh/Yr">Rs 1.5 Lakh/Yr</option>
+	<option value="Rs 2.0 Lakh/Yr">Rs 2.0 Lakh/Yr</option>
+	<option value="Rs 2.5 Lakh/Yr">Rs 2.5 Lakh/Yr</option>
+	<option value="Rs 3.0 Lakh/Yr">Rs 3.0 Lakh/Yr</option>
+	<option value="Rs 4.0 Lakh/Yr">Rs 4.0 Lakh/Yr</option>
+	<option value="Rs 5.0 Lakh/Yr">Rs 5.0 Lakh/Yr</option>
+	<option value="Rs 5.5 Lakh/Yr">Rs 5.5 Lakh/Yr</option>
+	<option value="Rs 6.0 Lakh/Yr">Rs 6.0 Lakh/Yr</option>
+	<option value="Rs 6.5 Lakh/Yr">Rs 6.5 Lakh/Yr</option>
+	<option value="Rs 7.0 Lakh/Yr">Rs 7.0 Lakh/Yr</option>
+	<option value="Rs 7.5 Lakh/Yr">Rs 7.5 Lakh/Yr</option>
+	<option value="Rs 8.0 Lakh/Yr">Rs 8.0 Lakh/Yr</option>
+	<option value="Rs 8.5 Lakh/Yr">Rs 8.5 Lakh/Yr</option>
+	<option value="Rs 9.0 Lakh/Yr">Rs 9.0 Lakh/Yr</option>
+	<option value="Rs 9.5 Lakh/Yr">Rs 9.5 Lakh/Yr</option>
+	<option value="Rs 10.0 Lakh/Yr">Rs 10.0 Lakh/Yr</option>
+	<option value="Rs 10.5 Lakh/Yr">Rs 10.5 Lakh/Yr</option>
+	<option value="Rs 11.0 Lakh/Yr">Rs 11.0 Lakh/Yr</option>
+	<option value="Rs 11.5 Lakh/Yr">Rs 11.5 Lakh/Yr</option>
+	<option value="Rs 12.0 Lakh/Yr">Rs 12.0 Lakh/Yr</option>
+	<option value="Rs 12.5 Lakh/Yr">Rs 12.5 Lakh/Yr</option>
+	<option value="Rs 13.0 Lakh/Yr">Rs 13.0 Lakh/Yr</option>
+	<option value="Rs 13.5 Lakh/Yr">Rs 13.5 Lakh/Yr</option>
+	<option value="Rs 14.0 Lakh/Yr">Rs 14.0 Lakh/Yr</option>
+	<option value="Rs 14.5 Lakh/Yr">Rs 14.5 Lakh/Yr</option>
+	<option value="Rs 15.0 Lakh/Yr">Rs 15.0 Lakh/Yr</option>
+	<option value="Rs 15.5 Lakh/Yr">Rs 15.5 Lakh/Yr</option>
+	<option value="Rs 16.0 Lakh/Yr">Rs 16.0 Lakh/Yr</option>
+	<option value="Rs 16.5 Lakh/Yr">Rs 16.5 Lakh/Yr</option>
+	<option value="Rs 17.0 Lakh/Yr">Rs 17.0 Lakh/Yr</option>
+	<option value="Rs 17.5 Lakh/Yr">Rs 17.5 Lakh/Yr</option>
+	<option value="Rs 18.0 Lakh/Yr">Rs 18.0 Lakh/Yr</option>
+	<option value="Rs 18.5 Lakh/Yr">Rs 18.5 Lakh/Yr</option>
+	<option value="Rs 19.0 Lakh/Yr">Rs 19.0 Lakh/Yr</option>
+	<option value="Rs 19.5 Lakh/Yr">Rs 19.5 Lakh/Yr</option>
+	<option value="Rs 20.0 Lakh/Yr">Rs 20.0 Lakh/Yr</option>
+	<option value="Rs 20.5 Lakh/Yr">Rs 20.5 Lakh/Yr</option>
+	<option value="Rs 21.0 Lakh/Yr">Rs 21.0 Lakh/Yr</option>
+	<option value="Rs 21.5 Lakh/Yr">Rs 21.5 Lakh/Yr</option>
+	<option value="Rs 22.0 Lakh/Yr">Rs 22.0 Lakh/Yr</option>
+	<option value="Rs 22.5 Lakh/Yr">Rs 22.5 Lakh/Yr</option>
+	<option value="Rs 23.0 Lakh/Yr">Rs 23.0 Lakh/Yr</option>
+	<option value="Rs 23.5 Lakh/Yr">Rs 23.5 Lakh/Yr</option>
+	<option value="Rs 24.0 Lakh/Yr">Rs 24.0 Lakh/Yr</option>
+	<option value="Rs 24.5 Lakh/Yr">Rs 24.5 Lakh/Yr</option>
+	<option value="Rs 25.0 Lakh/Yr">Rs 25.0 Lakh/Yr</option>
+	<option value="Rs 25.5 Lakh/Yr">Rs 25.5 Lakh/Yr</option>
+	<option value="Rs 26.0 Lakh/Yr">Rs 26.0 Lakh/Yr</option>
+	<option value="Rs 26.5 Lakh/Yr">Rs 26.5 Lakh/Yr</option>
+	<option value="Rs 27.0 Lakh/Yr">Rs 27.0 Lakh/Yr</option>
+	<option value="Rs 27.5 Lakh/Yr">Rs 27.5 Lakh/Yr</option>
+	<option value="Rs 28.0 Lakh/Yr">Rs 28.0 Lakh/Yr</option>
+	<option value="Rs 28.5 Lakh/Yr">Rs 28.5 Lakh/Yr</option>
+	<option value="Rs 29.0 Lakh/Yr">Rs 29.0 Lakh/Yr</option>
+	<option value="Rs 29.5 Lakh/Yr">Rs 29.5 Lakh/Yr</option>
+	<option value="Rs 30.0 Lakh/Yr">Rs 30.0 Lakh/Yr</option>
+	<option value="Rs 30.5 Lakh/Yr">Rs 30.5 Lakh/Yr</option>
+	<option value="Rs 31.0 Lakh/Yr">Rs 31.0 Lakh/Yr</option>
+	<option value="Rs 31.5 Lakh/Yr">Rs 31.5 Lakh/Yr</option>
+	<option value="Rs 32.0 Lakh/Yr">Rs 32.0 Lakh/Yr</option>
+	<option value="Rs 32.5 Lakh/Yr">Rs 32.5 Lakh/Yr</option>
+	<option value="Rs 33.0 Lakh/Yr">Rs 33.0 Lakh/Yr</option>
+	<option value="Rs 33.5 Lakh/Yr">Rs 33.5 Lakh/Yr</option>
+	<option value="Rs 34.0 Lakh/Yr">Rs 34.0 Lakh/Yr</option>
+	<option value="Rs 34.5 Lakh/Yr">Rs 34.5 Lakh/Yr</option>
+	<option value="Rs 35.0 Lakh/Yr">Rs 35.0 Lakh/Yr</option>
+	<option value="Rs 35.5 Lakh/Yr">Rs 35.5 Lakh/Yr</option>
+	<option value="Rs 36.0 Lakh/Yr">Rs 36.0 Lakh/Yr</option>
+	<option value="Rs 36.5 Lakh/Yr">Rs 36.5 Lakh/Yr</option>
+	<option value="Rs 37.0 Lakh/Yr">Rs 37.0 Lakh/Yr</option>
+	<option value="Rs 37.5 Lakh/Yr">Rs 37.5 Lakh/Yr</option>
+	<option value="Rs 38.0 Lakh/Yr">Rs 38.0 Lakh/Yr</option>
+	<option value="Rs 38.5 Lakh/Yr">Rs 38.5 Lakh/Yr</option>
+	<option value="Rs 39.0 Lakh/Yr">Rs 39.0 Lakh/Yr</option>
+	<option value="Rs 39.5 Lakh/Yr">Rs 39.5 Lakh/Yr</option>
+	<option value="Rs 40.0 Lakh/Yr">Rs 40.0 Lakh/Yr</option>
+	<option value="Rs 40.5 Lakh/Yr">Rs 40.5 Lakh/Yr</option>
+	<option value="Rs 41.0 Lakh/Yr">Rs 41.0 Lakh/Yr</option>
+	<option value="Rs 41.5 Lakh/Yr">Rs 41.5 Lakh/Yr</option>
+	<option value="Rs 42.0 Lakh/Yr">Rs 42.0 Lakh/Yr</option>
+	<option value="Rs 42.5 Lakh/Yr">Rs 42.5 Lakh/Yr</option>
+	<option value="Rs 43.0 Lakh/Yr">Rs 43.0 Lakh/Yr</option>
+	<option value="Rs 43.5 Lakh/Yr">Rs 43.5 Lakh/Yr</option>
+	<option value="Rs 44.0 Lakh/Yr">Rs 44.0 Lakh/Yr</option>
+	<option value="Rs 44.5 Lakh/Yr">Rs 44.5 Lakh/Yr</option>
+	<option value="Rs 45.0 Lakh/Yr">Rs 45.0 Lakh/Yr</option>
+	<option value="Rs 45.5 Lakh/Yr">Rs 45.5 Lakh/Yr</option>
+	<option value="Rs 46.0 Lakh/Yr">Rs 46.0 Lakh/Yr</option>
+	<option value="Rs 46.5 Lakh/Yr">Rs 46.5 Lakh/Yr</option>
+	<option value="Rs 47.0 Lakh/Yr">Rs 47.0 Lakh/Yr</option>
+	<option value="Rs 47.5 Lakh/Yr">Rs 47.5 Lakh/Yr</option>
+	<option value="Rs 48.0 Lakh/Yr">Rs 48.0 Lakh/Yr</option>
+	<option value="Rs 48.5 Lakh/Yr">Rs 48.5 Lakh/Yr</option>
+	<option value="Rs 49.0 Lakh/Yr">Rs 49.0 Lakh/Yr</option>
+	<option value="Rs 49.5 Lakh/Yr">Rs 49.5 Lakh/Yr</option>
+	<option value=">Rs 50.0 Lakh/Yr">>Rs 50.0 Lakh/Yr</option>
+	</select>
+	<select name="maxsalary">
+	<option value="none">--Max. Salary--</option>
+	<option value="< Rs 50,000/Yr">< Rs 50,000/Yr</option>
+	<option value="Rs 50,000/Yr">Rs 50,000/Yr</option>
+	<option value="Rs 1.0 Lakh/Yr">Rs 1.0 Lakh/Yr</option>
+	<option value="Rs 1.5 Lakh/Yr">Rs 1.5 Lakh/Yr</option>
+	<option value="Rs 2.0 Lakh/Yr">Rs 2.0 Lakh/Yr</option>
+	<option value="Rs 2.5 Lakh/Yr">Rs 2.5 Lakh/Yr</option>
+	<option value="Rs 3.0 Lakh/Yr">Rs 3.0 Lakh/Yr</option>
+	<option value="Rs 4.0 Lakh/Yr">Rs 4.0 Lakh/Yr</option>
+	<option value="Rs 5.0 Lakh/Yr">Rs 5.0 Lakh/Yr</option>
+	<option value="Rs 5.5 Lakh/Yr">Rs 5.5 Lakh/Yr</option>
+	<option value="Rs 6.0 Lakh/Yr">Rs 6.0 Lakh/Yr</option>
+	<option value="Rs 6.5 Lakh/Yr">Rs 6.5 Lakh/Yr</option>
+	<option value="Rs 7.0 Lakh/Yr">Rs 7.0 Lakh/Yr</option>
+	<option value="Rs 7.5 Lakh/Yr">Rs 7.5 Lakh/Yr</option>
+	<option value="Rs 8.0 Lakh/Yr">Rs 8.0 Lakh/Yr</option>
+	<option value="Rs 8.5 Lakh/Yr">Rs 8.5 Lakh/Yr</option>
+	<option value="Rs 9.0 Lakh/Yr">Rs 9.0 Lakh/Yr</option>
+	<option value="Rs 9.5 Lakh/Yr">Rs 9.5 Lakh/Yr</option>
+	<option value="Rs 10.0 Lakh/Yr">Rs 10.0 Lakh/Yr</option>
+	<option value="Rs 10.5 Lakh/Yr">Rs 10.5 Lakh/Yr</option>
+	<option value="Rs 11.0 Lakh/Yr">Rs 11.0 Lakh/Yr</option>
+	<option value="Rs 11.5 Lakh/Yr">Rs 11.5 Lakh/Yr</option>
+	<option value="Rs 12.0 Lakh/Yr">Rs 12.0 Lakh/Yr</option>
+	<option value="Rs 12.5 Lakh/Yr">Rs 12.5 Lakh/Yr</option>
+	<option value="Rs 13.0 Lakh/Yr">Rs 13.0 Lakh/Yr</option>
+	<option value="Rs 13.5 Lakh/Yr">Rs 13.5 Lakh/Yr</option>
+	<option value="Rs 14.0 Lakh/Yr">Rs 14.0 Lakh/Yr</option>
+	<option value="Rs 14.5 Lakh/Yr">Rs 14.5 Lakh/Yr</option>
+	<option value="Rs 15.0 Lakh/Yr">Rs 15.0 Lakh/Yr</option>
+	<option value="Rs 15.5 Lakh/Yr">Rs 15.5 Lakh/Yr</option>
+	<option value="Rs 16.0 Lakh/Yr">Rs 16.0 Lakh/Yr</option>
+	<option value="Rs 16.5 Lakh/Yr">Rs 16.5 Lakh/Yr</option>
+	<option value="Rs 17.0 Lakh/Yr">Rs 17.0 Lakh/Yr</option>
+	<option value="Rs 17.5 Lakh/Yr">Rs 17.5 Lakh/Yr</option>
+	<option value="Rs 18.0 Lakh/Yr">Rs 18.0 Lakh/Yr</option>
+	<option value="Rs 18.5 Lakh/Yr">Rs 18.5 Lakh/Yr</option>
+	<option value="Rs 19.0 Lakh/Yr">Rs 19.0 Lakh/Yr</option>
+	<option value="Rs 19.5 Lakh/Yr">Rs 19.5 Lakh/Yr</option>
+	<option value="Rs 20.0 Lakh/Yr">Rs 20.0 Lakh/Yr</option>
+	<option value="Rs 20.5 Lakh/Yr">Rs 20.5 Lakh/Yr</option>
+	<option value="Rs 21.0 Lakh/Yr">Rs 21.0 Lakh/Yr</option>
+	<option value="Rs 21.5 Lakh/Yr">Rs 21.5 Lakh/Yr</option>
+	<option value="Rs 22.0 Lakh/Yr">Rs 22.0 Lakh/Yr</option>
+	<option value="Rs 22.5 Lakh/Yr">Rs 22.5 Lakh/Yr</option>
+	<option value="Rs 23.0 Lakh/Yr">Rs 23.0 Lakh/Yr</option>
+	<option value="Rs 23.5 Lakh/Yr">Rs 23.5 Lakh/Yr</option>
+	<option value="Rs 24.0 Lakh/Yr">Rs 24.0 Lakh/Yr</option>
+	<option value="Rs 24.5 Lakh/Yr">Rs 24.5 Lakh/Yr</option>
+	<option value="Rs 25.0 Lakh/Yr">Rs 25.0 Lakh/Yr</option>
+	<option value="Rs 25.5 Lakh/Yr">Rs 25.5 Lakh/Yr</option>
+	<option value="Rs 26.0 Lakh/Yr">Rs 26.0 Lakh/Yr</option>
+	<option value="Rs 26.5 Lakh/Yr">Rs 26.5 Lakh/Yr</option>
+	<option value="Rs 27.0 Lakh/Yr">Rs 27.0 Lakh/Yr</option>
+	<option value="Rs 27.5 Lakh/Yr">Rs 27.5 Lakh/Yr</option>
+	<option value="Rs 28.0 Lakh/Yr">Rs 28.0 Lakh/Yr</option>
+	<option value="Rs 28.5 Lakh/Yr">Rs 28.5 Lakh/Yr</option>
+	<option value="Rs 29.0 Lakh/Yr">Rs 29.0 Lakh/Yr</option>
+	<option value="Rs 29.5 Lakh/Yr">Rs 29.5 Lakh/Yr</option>
+	<option value="Rs 30.0 Lakh/Yr">Rs 30.0 Lakh/Yr</option>
+	<option value="Rs 30.5 Lakh/Yr">Rs 30.5 Lakh/Yr</option>
+	<option value="Rs 31.0 Lakh/Yr">Rs 31.0 Lakh/Yr</option>
+	<option value="Rs 31.5 Lakh/Yr">Rs 31.5 Lakh/Yr</option>
+	<option value="Rs 32.0 Lakh/Yr">Rs 32.0 Lakh/Yr</option>
+	<option value="Rs 32.5 Lakh/Yr">Rs 32.5 Lakh/Yr</option>
+	<option value="Rs 33.0 Lakh/Yr">Rs 33.0 Lakh/Yr</option>
+	<option value="Rs 33.5 Lakh/Yr">Rs 33.5 Lakh/Yr</option>
+	<option value="Rs 34.0 Lakh/Yr">Rs 34.0 Lakh/Yr</option>
+	<option value="Rs 34.5 Lakh/Yr">Rs 34.5 Lakh/Yr</option>
+	<option value="Rs 35.0 Lakh/Yr">Rs 35.0 Lakh/Yr</option>
+	<option value="Rs 35.5 Lakh/Yr">Rs 35.5 Lakh/Yr</option>
+	<option value="Rs 36.0 Lakh/Yr">Rs 36.0 Lakh/Yr</option>
+	<option value="Rs 36.5 Lakh/Yr">Rs 36.5 Lakh/Yr</option>
+	<option value="Rs 37.0 Lakh/Yr">Rs 37.0 Lakh/Yr</option>
+	<option value="Rs 37.5 Lakh/Yr">Rs 37.5 Lakh/Yr</option>
+	<option value="Rs 38.0 Lakh/Yr">Rs 38.0 Lakh/Yr</option>
+	<option value="Rs 38.5 Lakh/Yr">Rs 38.5 Lakh/Yr</option>
+	<option value="Rs 39.0 Lakh/Yr">Rs 39.0 Lakh/Yr</option>
+	<option value="Rs 39.5 Lakh/Yr">Rs 39.5 Lakh/Yr</option>
+	<option value="Rs 40.0 Lakh/Yr">Rs 40.0 Lakh/Yr</option>
+	<option value="Rs 40.5 Lakh/Yr">Rs 40.5 Lakh/Yr</option>
+	<option value="Rs 41.0 Lakh/Yr">Rs 41.0 Lakh/Yr</option>
+	<option value="Rs 41.5 Lakh/Yr">Rs 41.5 Lakh/Yr</option>
+	<option value="Rs 42.0 Lakh/Yr">Rs 42.0 Lakh/Yr</option>
+	<option value="Rs 42.5 Lakh/Yr">Rs 42.5 Lakh/Yr</option>
+	<option value="Rs 43.0 Lakh/Yr">Rs 43.0 Lakh/Yr</option>
+	<option value="Rs 43.5 Lakh/Yr">Rs 43.5 Lakh/Yr</option>
+	<option value="Rs 44.0 Lakh/Yr">Rs 44.0 Lakh/Yr</option>
+	<option value="Rs 44.5 Lakh/Yr">Rs 44.5 Lakh/Yr</option>
+	<option value="Rs 45.0 Lakh/Yr">Rs 45.0 Lakh/Yr</option>
+	<option value="Rs 45.5 Lakh/Yr">Rs 45.5 Lakh/Yr</option>
+	<option value="Rs 46.0 Lakh/Yr">Rs 46.0 Lakh/Yr</option>
+	<option value="Rs 46.5 Lakh/Yr">Rs 46.5 Lakh/Yr</option>
+	<option value="Rs 47.0 Lakh/Yr">Rs 47.0 Lakh/Yr</option>
+	<option value="Rs 47.5 Lakh/Yr">Rs 47.5 Lakh/Yr</option>
+	<option value="Rs 48.0 Lakh/Yr">Rs 48.0 Lakh/Yr</option>
+	<option value="Rs 48.5 Lakh/Yr">Rs 48.5 Lakh/Yr</option>
+	<option value="Rs 49.0 Lakh/Yr">Rs 49.0 Lakh/Yr</option>
+	<option value="Rs 49.5 Lakh/Yr">Rs 49.5 Lakh/Yr</option>
+	<option value=">Rs 50.0 Lakh/Yr">>Rs 50.0 Lakh/Yr</option>
+	</select>
+	<br/><span id="provideg" style="color:red">Min. salary is required</span><br/><span id="provider" style="color:red">Max. salary is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Job Location: </td>
+	<td>
+	<input type="text" name="location" placeholder="Location of the job"/>
+	<br/><span id="providev" style="color:red">location is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Job Type: </td>
+	<td>
+	<select name="type">
+	<option value="none">--- Any ---</option>
+	<option value="Full Time">Full Time</option>
+	<option value="Part Time">Part Time</option>
+	<option value="Internship">Internship</option>
+	</select>
+	<br/><span id="providec" style="color:red">Job Type is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<tr>
+	<td class="form-text">Education Qualification Required: </td>
+	<td>
+	<select name="qualification">
+	<option value="none">Education Qualifications</option>
+    	<option value="Illiterate">Illiterate</option>
+    	<option value="10th or below">10th or below</option>
+    	<option value="10+2">10+2</option>
+    	<option value="Diploma or Equivalent">Diploma or Equivalent</option>
+    	<option value="Graduation">Graduation</option>
+    	<option value="PG or Equivalent">PG or Equivalent</option>
+    	<option value="PhD/MPhil or Equivalent">PhD/MPhil or Equivalent</option>
+	</select>
+	<br/><span id="providex" style="color:red">Qualification is required</span></td>
+	</tr>
+	<tr><td><br/></td></tr>
+	<th colspan="2"><input type="submit" value="Post Job" class="post"/></th>
+	</table>
+</form>
+</div>
+
+</div>
+<div class="end_bar">
+<center>
+    <div class="ending"><a href="#">Feedback</a></div>
+    <div class="ending"><a href="#">FAQ</a></div>
+    <div class="ending"><a href="#">About us</a></div>
+    <div class="ending"><a href="#">Contact us</a></div>
+    <div class="ending"><a href="#">Privacy Policy</a></div>
+    <div class="ending"><a href="#">Security Advice</a></div>
+    <div class="ending"><a href="#">Terms & Condition</a></div>
+    <div class="ending lasting"><a href="#">Disclaimer</a></div>
+</center>
+</div>
+
+
+
+
+</center>
+
+
+
+
+
+<style>
+.nav {
+	width:83.6em;
+	height:2.9em;
+	background: rgba(76,76,76,1);
+background: rgba(210,255,82,1);
+background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(43%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+border-bottom: 5px solid orange;
+}
+.navbar:hover {
+        box-shadow:0 0 0 0 ;
+}
+.navbar {
+        box-shadow:0 0 5px rgba(0,0,0,0.8);
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    position:relative;
+    width: 10em;
+    height: 2em;
+    margin-left: 2px;
+    font-size:12px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.header {
+        position:relative;
+	top:1em;
+}
+.last {
+    border-right: 1px solid black;
+}
+#shift {
+    position:relative;
+    top:0.5em;
+}
+.form-text {
+    width:17em;
+    font-weight: bold;
+}
+.register {
+        border-radius:3px;
+    height:2.5em;
+    background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+.arrange {
+    position:relative;
+    top:0.6em;
+}
+.full {
+    position:relative;
+    top:4em;
+    display:inline-block;
+    padding:10px;
+}
+.posting {
+    border: 2px solid orange;
+    border-radius: 4px;
+}
+.post {
+    font-size:1em;
+}
+.end_bar {
+    background-color:#a8a8a8;
+    height: 3em;
+    width:83.6em;
+    border-top:1px solid black;
+    margin-top: 10em;
+}
+.ending {
+    display: inline-block;
+    border-right:1px solid black;
+    width:10em;
+    position: relative;
+    top: 1em;
+}
+.lasting {
+    border-right: 0px none;
+}
+.complete {
+    font-size: 2em;
+    font-weight: bold;
+    position:relative;
+    top:-1em;
+}
+a {
+    text-decoration:none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+}
+#provide,#provid,#provi,#prov,#pro,#providet,#provideg,#provider,#providev,#providec,#providex {
+    display: none;
+}
+body {
+    overflow-x: hidden;
+}
+.signout {
+    position: relative;
+    top: 1em;
+    left: 22em;
+}
+.same {
+    position:relative;
+    display: inline-block;
+}
+.profilelink {
+    position: relative;
+    top:1em;
+    right: 19.5em;
+}
+</style>
+<script>
+function validateform()
+    {
+        if(document.Form.title.value == "")
+	{
+	    document.getElementById("provide").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.description.value == "")
+	{
+	    document.getElementById("provid").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.industry.value == "")
+	{
+	    document.getElementById("provi").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.functional.value == "")
+	{
+	    document.getElementById("prov").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.minexp.value == "")
+	{
+	    document.getElementById("pro").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.maxexp.value == "")
+	{
+	    document.getElementById("providet").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.minsalary.value == "")
+	{
+	    document.getElementById("provideg").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.maxsalary.value == "")
+	{
+	    document.getElementById("provider").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.location.value == "")
+	{
+	    document.getElementById("providev").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.type.value == "")
+	{
+	    document.getElementById("providec").style.display="inline-block";
+	    return false;
+	}
+	else if(document.Form.qualification.value == "")
+	{
+	    document.getElementById("providex").style.display="inline-block";
+	    return false;
+	}
+	else
+	{
+	     return true;
+	}
+    }
+</script>
+</body>
+</html>
