@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Jobs Finder-Edit Profile</title>
+</head>
+
+<body>
+<center>
+<div class="nav">
+<center>
+<div class="header">
+    <div class="navbar home" id="drop"><span id="shift" style="color:black"><a href="/">Home</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/signup/">Job Seeker Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/resumeservice/">Resume Services</a></span></div>
+    <div class="navbar recruiter" id="drop"><span id="shift" style="color:black"><a href="/edit_profile/">Post Resume</a></span></div>
+    <div class="navbar search_job" id="drop"><span id="shift" style="color:black"><a href="/searchjob/">Search Jobs</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/recruiter/">Employer Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/postjob/">Post a Job</a></span></div>
+    <div class="navbar last" id="drop"><span id="shift" style="color:black"><a href="/buyonline/">Buy Online</a></span></div>
+</div>
+</center>
+</div>
+<div class="signout">({{ email }}) <a href="/rlogout/" style="font-weight:bold;">Logout</a></div>
+<h2 style="color:blue">Your Profile</h2>
+<div><span style="color:red">{% if condition %}{{condition}}{% endif %}</span></div>
+<div>
+<div class="details">
+<div class="heading_one">Detailed Information</div>
+<table class="tsize">
+<tr>
+<td>Company Name:</td><td class="gap"></td><td> {{ details.company }}</td>
+</tr>
+<tr>
+<td>Email:</td><td class="gap"></td><td> {{ details.email }}</td>
+</tr>
+<tr>
+<td>Website:</td><td class="gap"></td><td> {{ details.website }}</td>
+</tr>
+<tr>
+<td>Contact Name:</td><td class="gap"></td><td> {{ details.contact }}</td>
+</tr>
+<tr>
+<td>Location:</td><td class="gap"></td><td> {{ details.location }}</td>
+</tr>
+<tr>
+<td>Mobile Number:</td><td class="gap"></td><td> {{ details.country_code }}-{{ details.mobile_no }}</td>
+</tr>
+</table>
+</div>
+<div class="anodiv">
+<div class="heading_one">Other Links</div>
+<ul>
+<li style="text-align:left;"><span class="shift_one"><a href="/rprofile/">Profile</a></span></li>
+<li style="text-align:left;"><span class="shift_two"><a href="/jobs/all/">Posted Jobs</a></span></li>
+<li style="text-align:left;"><span class="shift_three"><a href="/changepassword/">Change Your Password</a></span></li>
+</ul>
+</div>
+</div>
+<div><a href="/postjob/"><div class="posting"><h3 class="upper" style="font-size:2em;">Post a Job</h3></div></a></div>
+<div class="end_bar">
+<center>
+    <div class="ending"><a href="#">Feedback</a></div>
+    <div class="ending"><a href="#">FAQ</a></div>
+    <div class="ending"><a href="#">About us</a></div>
+    <div class="ending"><a href="#">Contact us</a></div>
+    <div class="ending"><a href="#">Privacy Policy</a></div>
+    <div class="ending"><a href="#">Security Advice</a></div>
+    <div class="ending"><a href="#">Terms & Condition</a></div>
+    <div class="ending lasting"><a href="#">Disclaimer</a></div>
+</center>
+</div>
+
+
+
+</center>
+
+
+
+
+<style>
+.nav {
+	width:83.6em;
+	height:2.9em;
+	background: rgba(76,76,76,1);
+background: rgba(210,255,82,1);
+background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(43%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+border-bottom: 5px solid orange;
+}
+.navbar:hover {
+        box-shadow:0 0 0 0 ;
+}
+.navbar {
+        box-shadow:0 0 5px rgba(0,0,0,0.8);
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    position:relative;
+    width: 10em;
+    height: 2em;
+    margin-left: 2px;
+    font-size:12px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.header {
+        position:relative;
+	top:1em;
+}
+.last {
+    border-right: 1px solid black;
+}
+#shift {
+    position:relative;
+    top:0.5em;
+}
+a {
+    text-decoration:none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+}
+body {
+    overflow-x: hidden;
+}
+.signout {
+    position: relative;
+    top: 1em;
+    left: 22em;
+}
+.end_bar {
+    background-color:#a8a8a8;
+    height: 3em;
+    width:83.6em;
+    border-top:1px solid black;
+    margin-top: 14em;
+}
+.ending {
+    display: inline-block;
+    border-right:1px solid black;
+    width:10em;
+    position: relative;
+    top: 1em;
+}
+.lasting {
+    border-right: 0px none;
+}
+.posting {
+    height: 2em;
+    position: relative;
+    display: inline-block;
+    background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+    border: 1px solid orange;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow:0 0 5px rgba(0,0,0,0.8);
+    top:2em;
+}
+.posting:hover {
+    box-shadow: 0 0 0 0;
+}
+.upper {
+    position: relative;
+    bottom:1em;
+}
+.details {
+    position:relative;
+    border-radius: 5px;
+    border:1px solid orange;
+    display:inline-block;
+    top:-4em;
+    right:12em;
+}
+.heading_one {
+    background: rgba(235,233,249,1);
+background: -moz-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(235,233,249,1)), color-stop(45%, rgba(216,208,239,1)), color-stop(54%, rgba(206,199,236,1)), color-stop(100%, rgba(193,191,234,1)));
+background: -webkit-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -o-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: -ms-linear-gradient(top, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(216,208,239,1) 45%, rgba(206,199,236,1) 54%, rgba(193,191,234,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebe9f9', endColorstr='#c1bfea', GradientType=0 );
+}
+.anodiv {
+    position: relative;
+    width: 15em;
+    border: 1px solid orange;
+    border-radius:5px;
+    display:inline-block;
+    top:0.6em;
+    left: 12em;
+}
+</style>
+</body>
+</html>

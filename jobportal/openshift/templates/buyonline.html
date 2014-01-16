@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Jobs Finder-Signup</title>
+</head>
+
+<body>
+<center>
+<div class="nav">
+<center>
+<div class="header">
+    <div class="navbar home" id="drop"><span id="shift" style="color:black"><a href="/">Home</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/signup/">Job Seeker Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/resumeservice/">Resume Services</a></span></div>
+    <div class="navbar recruiter" id="drop"><span id="shift" style="color:black"><a href="/edit_profile/">Post Resume</a></span></div>
+    <div class="navbar search_job" id="drop"><span id="shift" style="color:black"><a href="/searchjob/">Search Jobs</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/recruiter/">Employer Login</a></span></div>
+    <div class="navbar job" id="drop"><span id="shift" style="color:black"><a href="/postjob/">Post a Job</a></span></div>
+    <div class="navbar last" id="drop"><span id="shift" style="color:black"><a href="/buyonline/">Buy Online</a></span></div>
+</div>
+</center>
+</div>
+<div class="resize">
+<h1>Search Over Thousands of Students Databases</h1>
+<img src="{% static "assets/images/resumesearch.jpg" %}"/><img src="{% static "assets/images/search-resume.jpg" %}"/>
+</div>
+
+<div class="further">
+<div class="jpost anothers"><img src="{% static "assets/images/buyonline.png" %}"/>
+<h3>Job Posting Express</h3>
+<ul class="down">
+    <li style="text-align:left">Upto 5 Job Posting</li>
+    <li style="text-align:left">Access upto 500 students databases</li>
+</ul>
+</div>
+<div class="jpost"><img src="{% static "assets/images/buyonline1.png" %}"/>
+<h3>Premium Posting</h3>
+<ul class="down">
+    <li style="text-align:left">Upto 10 Job Posting</li>
+    <li style="text-align:left">Access upto 1000 students databases</li>
+</ul>
+</div>
+<div class="jpost others"><img src="{% static "assets/images/buyonline2.png" %}"/>
+<h3>Full Service Solution</h3>
+<ul class="down">
+    <li style="text-align:left">Upto 15 Job Posting</li>
+    <li style="text-align:left">Access upto 1500 students databases</li>
+</ul>
+</div>
+</div>
+
+
+
+
+
+
+<div class="end_bar">
+<center>
+    <div class="ending"><a href="#">Feedback</a></div>
+    <div class="ending"><a href="#">FAQ</a></div>
+    <div class="ending"><a href="#">About us</a></div>
+    <div class="ending"><a href="#">Contact us</a></div>
+    <div class="ending"><a href="#">Privacy Policy</a></div>
+    <div class="ending"><a href="#">Security Advice</a></div>
+    <div class="ending"><a href="#">Terms & Condition</a></div>
+    <div class="ending lasting"><a href="#">Disclaimer</a></div>
+</center>
+</div>
+
+
+
+<style>
+.nav {
+	width:83.6em;
+	height:2.9em;
+	background: rgba(76,76,76,1);
+background: rgba(210,255,82,1);
+background: -moz-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(210,255,82,1)), color-stop(43%, rgba(210,255,82,1)), color-stop(100%, rgba(145,232,66,1)));
+background: -webkit-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -o-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: -ms-linear-gradient(top, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(210,255,82,1) 43%, rgba(145,232,66,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=0 );
+border-bottom: 5px solid orange;
+}
+.navbar:hover {
+        box-shadow:0 0 0 0 ;
+}
+.navbar {
+        box-shadow:0 0 5px rgba(0,0,0,0.8);
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    position:relative;
+    width: 10em;
+    height: 2em;
+    margin-left: 2px;
+    font-size:12px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.header {
+        position:relative;
+	top:1em;
+}
+.last {
+    border-right: 1px solid black;
+}
+#shift {
+    position:relative;
+    top:0.5em;
+}
+.end_bar {
+    background-color:#a8a8a8;
+    height: 3em;
+    width:83.6em;
+    border-top:1px solid black;
+    margin-top: 18em;
+}
+.ending {
+    display: inline-block;
+    border-right:1px solid black;
+    width:10em;
+    position: relative;
+    top: 1em;
+}
+.lasting {
+    border-right: 0px none;
+}
+.jpost {
+    border: 1px solid orange;
+    width:13em;
+    height:20em;
+    display:inline-block;
+}
+.further {
+    position:relative;
+    top:10em;
+}
+.down {
+    position:relative;
+    top:3em;
+}
+a {
+    text-decoration:none;
+    color:black;
+}
+a:hover {
+    text-decoration:underline;
+}
+.resize {
+    position:relative;
+    top:4em;
+}
+.anothers {
+    position: relative;
+    right:4em;
+}
+.others {
+    position:relative;
+    left:4em;
+}
+</style>
+</body>
+</html>
