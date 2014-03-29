@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import Tkinter
 import urllib2
 from Tkinter import *
@@ -17,12 +19,12 @@ class ShareValue:
 		self.label.pack()
 
 
-		self.dirn = Entry(self.dirfm, width=50,textvariable=self.cwd)
+		self.dirn = Entry(self.dirfm, width=50, textvariable=self.cwd)
 		self.dirn.bind('<Return>', self.share)
 		self.dirn.pack()
-		self.result=""
-		self.label = Label(self.dirfm,text="")
-		self.label.pack()
+		self.result="Enter Symbol and press Enter Key"
+		self.label1 = Label(self.dirfm,text="")
+		self.label1.pack()
 		self.label = Label(self.dirfm,text=self.result)
 		self.label.pack()
 		self.dirfm.pack(expand=1)
@@ -57,7 +59,7 @@ class ShareValue:
 	
 	def clear(self, ev=None):
 		self.dirn.delete(0, Tkinter.END)
-		self.label.config(text="")
+		self.label.config(text="Enter Symbol and press Enter Key")
 		self.label.update()
 		
 		
