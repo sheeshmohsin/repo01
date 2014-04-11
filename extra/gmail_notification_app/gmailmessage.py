@@ -3,11 +3,14 @@ import subprocess
 from bs4 import BeautifulSoup
 import time
 import ConfigParser
+import os
+import sys
 
 FEED_URL = 'https://mail.google.com/mail/feed/atom'
-
+cwd = sys.path[0]
+basefile = os.path.join(cwd, 'config.ini')
 Config = ConfigParser.ConfigParser()
-Config.read("config.ini")
+Config.read(basefile)
 
 
 def ConfigSectionMap(section):
@@ -69,7 +72,6 @@ class Gmailnotification:
 
 
 if __name__ == "__main__":
-	previousnumber = 0
 	while True:
 		if internet_on():
 			user = ConfigSectionMap("SectionOne")['username']
