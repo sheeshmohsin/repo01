@@ -15,9 +15,9 @@ def share(symbol):
         print "failed to open the finance.yahoo.com url"
 
 if __name__ == '__main__':
-        if len(sys.argv) !=2:
-                print "Incorrect entry. Enter a NASDAQ symbol"
-                sys.exit(1)
-        else:
-                share(sys.argv[1])
-                sys.exit(1)
+    if len(sys.argv) !=2:
+        print "Incorrect entry. Enter a NASDAQ symbol"
+        sys.exit(1)
+    else:
+        share(sys.argv[1])
+        sys.exit(1)
